@@ -18,4 +18,20 @@ Ios:
   cd .. 
   npx react-native run-ios
 
+Android:
+ Make sure install JAVA jdk
+  brew cask install android-sdk
+  sdkmanager "emulator"
+  sdkmanager "platform-tools"
+  sdkmanager "system-images;android-26;google_apis;x86_64"
+  avdmanager create avd -n NAME -k "system-images;android-26;google_apis;x86_64" # the one that you use above
 
+  add to .bashrc. use bash or szh, not fist
+
+  export ANDROID_HOME="/usr/local/share/android-sdk"
+  export PATH=$PATH:$ANDROID_HOME/emulator
+  export PATH=$PATH:$ANDROID_HOME/tools
+  export PATH=$PATH:$ANDROID_HOME/tools/bin
+  export PATH=$PATH:$ANDROID_HOME/platform-tools
+  export ANDROID_SDK_ROOT=$ANDROID_HOME
+  alias emu="$ANDROID_HOME/tools/emulator"
