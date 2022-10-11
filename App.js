@@ -51,9 +51,9 @@ window.navigator.getUserMedia =
 function initSdk() {
   const sdkOptions = {
     sipOnly: true,
-    sipDomain: 'mobile.tel4vn.com:50061',
-    wsServer: 'wss://wss-mobile.tel4vn.com:7444',
-    sipPassword: 'Tel4vn.com123@',
+    sipDomain: '<sip domain>',
+    wsServer: '<wss url>',
+    sipPassword: '<sip password>',
     debug: true,
   };
   const sdkDelegates = {
@@ -84,7 +84,7 @@ function initSdk() {
       console.log('onCallHold');
     },
   };
-  let pitelSDK = new PitelSDK('xxx', 'xxx', '103', sdkDelegates, sdkOptions);
+  let pitelSDK = new PitelSDK('xxx', 'xxx', '<sip username>', sdkDelegates, sdkOptions);
 }
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
