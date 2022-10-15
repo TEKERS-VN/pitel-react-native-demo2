@@ -48,6 +48,8 @@ window.navigator.mediaDevices = window.navigator.mediaDevices || mediaDevices;
 window.navigator.getUserMedia =
   window.navigator.getUserMedia || mediaDevices.getUserMedia;
 
+var isOnCall = false;
+
 function initSdk() {
   const sdkOptions = {
     sipOnly: true,
@@ -58,17 +60,19 @@ function initSdk() {
   };
   const sdkDelegates = {
     onRegistered() {
-      console.log('SIP Register success!');
-      // bindEvents();
-      setTimeout(() => {
-        pitelSDK.call(104);
-      }, 1000);
+      console.log('SIP Register success!: ', isOnCall);
+      if (!isOnCall) {
+        setTimeout(() => {
+          pitelSDK.call(104);
+        }, 1000);
+      }
     },
     onUnregistered() {
       console.log('SIP Unregister success!');
     },
     onCallCreated(remoteNumber) {
       console.log('onCallCreated:', remoteNumber);
+      isOnCall = true;
     },
     onCallReceived(remoteNumber) {
       console.log('onCallReceived:', remoteNumber);
@@ -76,9 +80,11 @@ function initSdk() {
     },
     onCallAnswered() {
       console.log('onCallAnswered');
+      isOnCall = true;
     },
     onCallHangup() {
       console.log('onCallHangup');
+      isOnCall = false;
     },
     onCallHold() {
       console.log('onCallHold');

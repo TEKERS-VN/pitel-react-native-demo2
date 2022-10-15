@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "pitel-react-native-webrtc": "^106.0.0-beta.6",
-    "pitel-sdk-webrtc": "^1.0.0",
+    "pitel-sdk-webrtc": "^1.0.3",
     "react": "18.1.0",
     "react-native": "0.70.2"
   },
