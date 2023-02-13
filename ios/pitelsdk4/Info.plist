@@ -53,5 +53,7 @@
 	<false/>
 	<key>NSMicrophoneUsageDescription</key>
   <string>Need microphone access for voip call</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Need Camera access for video call</string>
 </dict>
 </plist>
